@@ -29,7 +29,6 @@ body{
   background:var(--bg);color:var(--text);
   font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.5;
 }
-.mono{font-family:'IBM Plex Mono',monospace;}
 button{font-family:inherit;}
 
 /* ---------- HEADER ---------- */
@@ -48,9 +47,7 @@ h1{
   font-size:clamp(24px,5vw,36px);letter-spacing:-.02em;line-height:1.08;
 }
 h1 .yl{color:var(--yellow);}
-.top-row{
-  display:flex;align-items:stretch;gap:14px;flex-wrap:wrap;margin-top:18px;
-}
+.top-row{display:flex;align-items:stretch;gap:14px;flex-wrap:wrap;margin-top:18px;}
 .pct-block{flex:1;min-width:220px;}
 .big-pct{
   font-family:'IBM Plex Mono',monospace;font-weight:600;
@@ -58,9 +55,7 @@ h1 .yl{color:var(--yellow);}
 }
 .baaki-line{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--soft);margin-top:6px;}
 .baaki-line strong{color:var(--danger);font-weight:600;}
-.track{
-  margin-top:12px;height:14px;background:#1D2027;border:1px solid var(--line);overflow:hidden;
-}
+.track{margin-top:12px;height:14px;background:#1D2027;border:1px solid var(--line);overflow:hidden;}
 .track .fill{
   height:100%;width:0%;
   background:repeating-linear-gradient(-55deg,var(--yellow),var(--yellow) 8px,#E8BE00 8px,#E8BE00 16px);
@@ -71,21 +66,15 @@ h1 .yl{color:var(--yellow);}
   padding:14px 16px;display:flex;flex-direction:column;justify-content:center;
 }
 .cd-lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);}
-.cd-num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:38px;line-height:1.1;color:var(--text);}
+.cd-num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:38px;line-height:1.1;}
 .cd-num span{font-size:15px;color:var(--soft);font-weight:500;}
 .cd-date{margin-top:6px;}
 .cd-date input{
   background:var(--card2);border:1px solid var(--line);color:var(--soft);
-  font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 6px;
-  color-scheme:dark;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 6px;color-scheme:dark;
 }
-.act-stats{
-  display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px;
-}
-.astat{
-  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--soft);
-  padding:8px 9px;
-}
+.act-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px;}
+.astat{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--soft);padding:8px 9px;}
 .astat .a-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--soft);}
 .astat .a-val{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px;margin-top:1px;}
 .astat .a-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);}
@@ -122,18 +111,13 @@ main{max-width:860px;margin:0 auto;padding:18px 14px 90px;}
 .subj-name small{display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;color:var(--soft);margin-top:1px;}
 .subj-pct{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;flex:none;}
 .subj-pct.full{color:var(--rev);}
-.subj-del{
-  flex:none;border:none;background:none;color:var(--soft);font-size:14px;cursor:pointer;padding:4px 6px;
-}
+.subj-del{flex:none;border:none;background:none;color:var(--soft);font-size:14px;cursor:pointer;padding:4px 6px;}
 .subj-del:hover{color:var(--danger);}
 .subj-track{height:4px;background:#1D2027;margin:0 14px;}
 .subj-track .sfill{height:100%;background:var(--yellow);transition:width .4s;}
 .subj-track .sfill.full{background:var(--rev);}
 
-.act-bars{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
-  padding:12px 14px 4px;
-}
+.act-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px 14px 4px;}
 .ab{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);}
 .ab .ab-top{display:flex;justify-content:space-between;margin-bottom:3px;}
 .ab .ab-track{height:4px;background:#1D2027;}
@@ -142,12 +126,18 @@ main{max-width:860px;margin:0 auto;padding:18px 14px 90px;}
 .topics{display:none;padding:10px 8px 14px;}
 .subject.open .topics{display:block;}
 
+.sec-title{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--soft);padding:10px 8px 6px;
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+.sec-title .sc{font-weight:600;}
+
 .topic{
   display:flex;align-items:center;gap:8px;flex-wrap:wrap;
   padding:9px 8px;border-bottom:1px solid #1B1E24;
 }
-.topic:last-of-type{border-bottom:none;}
-.tname{flex:1 1 160px;font-size:14px;min-width:0;}
+.tname{flex:1 1 140px;font-size:14px;min-width:0;}
 .tname.alldone{color:var(--soft);}
 .chips{display:flex;gap:5px;flex-wrap:wrap;}
 .chip{
@@ -161,12 +151,29 @@ main{max-width:860px;margin:0 auto;padding:18px 14px 90px;}
 .chip.on.c-rev{background:var(--rev);}
 .chip.on.c-notes{background:var(--notes);}
 .chip.on.c-test{background:var(--test);}
-.chip.on.c-ws{background:var(--ws);}
-.chip.on.c-laws{background:var(--laws);}
-.t-del{
-  flex:none;border:none;background:none;color:var(--soft);font-size:13px;cursor:pointer;padding:2px 6px;
-}
+.t-del{flex:none;border:none;background:none;color:var(--soft);font-size:13px;cursor:pointer;padding:2px 6px;}
 .t-del:hover{color:var(--danger);}
+
+/* session pills (WS / LAWS) */
+.sess-block{margin-top:6px;padding:0 8px 4px;}
+.sess-wrap{display:flex;gap:7px;flex-wrap:wrap;align-items:center;}
+.pill{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;
+  padding:7px 12px;border-radius:3px;cursor:pointer;user-select:none;
+  background:var(--card2);border:1px solid var(--line);color:var(--soft);
+  display:inline-flex;align-items:center;gap:7px;
+}
+.pill:focus-visible{outline:2px solid var(--yellow);outline-offset:1px;}
+.pill.on{color:#0B0C0F;font-weight:600;border-color:transparent;}
+.pill.on.p-ws{background:var(--ws);}
+.pill.on.p-laws{background:var(--laws);}
+.pill .px{font-size:11px;opacity:.7;}
+.pill .px:hover{opacity:1;}
+.pill-add{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;padding:7px 12px;
+  border:1px dashed var(--line);background:none;color:var(--soft);cursor:pointer;border-radius:3px;
+}
+.pill-add:hover{border-color:var(--yellow);color:var(--yellow);}
 
 .add-row{display:flex;gap:8px;margin-top:12px;padding:0 8px;}
 .add-row input{
@@ -187,25 +194,81 @@ main{max-width:860px;margin:0 auto;padding:18px 14px 90px;}
   font-size:14px;cursor:pointer;margin-top:4px;
 }
 .add-subject:hover{border-color:var(--yellow);color:var(--yellow);}
-.subj-form{
-  border:1.5px dashed var(--yellow);padding:14px;margin-top:4px;display:none;
-}
+.subj-form{border:1.5px dashed var(--yellow);padding:14px;margin-top:4px;display:none;}
 .subj-form.show{display:block;}
 .subj-form input[type=text]{
   width:100%;border:1px solid var(--line);padding:10px;background:var(--card2);
   color:var(--text);font-size:14px;font-family:'IBM Plex Sans',sans-serif;
 }
 .subj-form input[type=text]:focus{outline:none;border-color:var(--yellow);}
-.act-picks{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.sf-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin:12px 0 6px;}
+.act-picks{display:flex;gap:8px;flex-wrap:wrap;}
 .apick{
   font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:6px 10px;
   border:1px solid var(--line);border-radius:3px;cursor:pointer;color:var(--soft);
   background:var(--card2);user-select:none;
 }
 .apick.on{color:#0B0C0F;font-weight:600;border-color:transparent;}
-.sf-btns{display:flex;gap:8px;margin-top:12px;}
+.sf-btns{display:flex;gap:8px;margin-top:14px;}
 .sf-btns .go{border:none;background:var(--yellow);color:#0B0C0F;font-family:'Archivo',sans-serif;font-weight:700;padding:9px 16px;cursor:pointer;font-size:13px;}
 .sf-btns .cancel{border:1px solid var(--line);background:none;color:var(--soft);padding:9px 14px;cursor:pointer;font-size:13px;}
+
+/* ---------- DAILY MRBD ---------- */
+.daily-card{background:var(--card);border:1px solid var(--line);padding:16px 14px;margin-bottom:14px;}
+.d-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.d-title{font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;}
+.d-score{
+  font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:22px;
+  background:var(--yellow);color:#0B0C0F;padding:4px 12px;
+}
+.d-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+.d-row input{
+  border:1px solid var(--line);background:var(--card2);color:var(--text);
+  padding:9px 10px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;color-scheme:dark;
+}
+.d-row input[type=date]{flex:0 0 auto;font-family:'IBM Plex Mono',monospace;font-size:12.5px;}
+.d-row input[type=text]{flex:1;min-width:140px;}
+.d-row input:focus{outline:none;border-color:var(--yellow);}
+.d-sec{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--soft);margin:14px 0 6px;
+}
+.d-check{
+  display:flex;align-items:center;gap:10px;padding:9px 6px;cursor:pointer;
+  border-bottom:1px solid #1B1E24;user-select:none;font-size:14px;
+}
+.d-check .dbox{
+  width:19px;height:19px;flex:none;border:1.8px solid var(--soft);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:#0B0C0F;background:none;
+}
+.d-check.on .dbox{background:var(--yellow);border-color:var(--yellow);}
+.d-check.on .dbox:before{content:"\2713";font-weight:700;}
+.d-check:focus-visible{outline:2px solid var(--yellow);outline-offset:-2px;}
+.d-txt{width:100%;border:1px solid var(--line);background:var(--card2);color:var(--text);
+  padding:9px 10px;font-family:'IBM Plex Sans',sans-serif;font-size:14px;margin-top:4px;}
+.d-txt:focus{outline:none;border-color:var(--yellow);}
+.d-save{
+  width:100%;margin-top:16px;border:none;background:var(--yellow);color:#0B0C0F;
+  font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;padding:13px;cursor:pointer;
+}
+.d-save:active{transform:translateY(1px);}
+.hist-item{
+  background:var(--card);border:1px solid var(--line);margin-bottom:10px;
+}
+.hist-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;user-select:none;}
+.hist-date{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;flex:none;}
+.hist-subj{flex:1;font-size:13.5px;color:var(--soft);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.hist-score{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:14px;flex:none;}
+.hist-score.good{color:var(--rev);}
+.hist-score.mid{color:var(--yellow);}
+.hist-score.low{color:var(--danger);}
+.hist-del{border:none;background:none;color:var(--soft);cursor:pointer;font-size:13px;padding:2px 6px;flex:none;}
+.hist-del:hover{color:var(--danger);}
+.hist-body{display:none;padding:0 14px 14px;font-size:13.5px;color:var(--soft);}
+.hist-item.open .hist-body{display:block;}
+.hist-body b{color:var(--text);font-weight:600;}
+.hb-line{margin-top:6px;}
 
 /* ---------- TOOLS ---------- */
 .tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
@@ -249,12 +312,12 @@ main{max-width:860px;margin:0 auto;padding:18px 14px 90px;}
 
 <main>
   <div class="legend" id="legend"></div>
-  <div class="hint">Har topic ke chips pe tap karo — LEC, REV, NOTES, TEST, WS, LAWS. Subject ya topic kisi bhi level pe add/delete kar sakte ho (&#10005; se).</div>
+  <div class="hint">Har class ke aage LEC / REV / NOTES chips hain. WS aur LAWS pura subject ke sessions hain — schedule ke hisaab se counts pre-set hain, + se aur add kar sakte ho. Subject/topic/session sab add-delete ho sakta hai.</div>
   <div id="content"></div>
   <div class="tools">
     <button onclick="exportData()">Export backup (JSON)</button>
     <button onclick="document.getElementById('impFile').click()">Import backup</button>
-    <button onclick="resetAll()">Reset sab kuch</button>
+    <button onclick="resetAll(this)">Reset sab kuch</button>
     <input type="file" id="impFile" accept=".json" style="display:none" onchange="importData(this)">
   </div>
   <div class="save-note" id="saveNote">Progress auto-save hota hai isi browser mein (localStorage).</div>
@@ -263,17 +326,20 @@ main{max-width:860px;margin:0 auto;padding:18px 14px 90px;}
 <script>
 // ================= ACTIVITY DEFINITIONS =================
 var ACTS = {
-  lec:  {label:"LEC",   full:"Lecture",     color:"var(--lec)",   cls:"c-lec"},
-  rev:  {label:"REV",   full:"Revision",    color:"var(--rev)",   cls:"c-rev"},
-  notes:{label:"NOTES", full:"Notes",       color:"var(--notes)", cls:"c-notes"},
-  test: {label:"TEST",  full:"Test",        color:"var(--test)",  cls:"c-test"},
-  ws:   {label:"WS",    full:"Write Smart", color:"var(--ws)",    cls:"c-ws"},
-  laws: {label:"LAWS",  full:"LAWS",        color:"var(--laws)",  cls:"c-laws"}
+  lec:  {label:"LEC",   full:"Lecture",  color:"var(--lec)",   cls:"c-lec"},
+  rev:  {label:"REV",   full:"Revision", color:"var(--rev)",   cls:"c-rev"},
+  notes:{label:"NOTES", full:"Notes",    color:"var(--notes)", cls:"c-notes"},
+  test: {label:"TEST",  full:"Test",     color:"var(--test)",  cls:"c-test"}
 };
-var ACT_ORDER = ["lec","rev","notes","test","ws","laws"];
-var MAINS_ACTS = ["lec","rev","notes","test","ws","laws"];
+var TOPIC_ACT_ORDER = ["lec","rev","notes","test"];
+var SESS = {
+  ws:  {label:"WS",   full:"Write Smart", color:"var(--ws)",   cls:"p-ws"},
+  laws:{label:"LAWS", full:"LAWS",        color:"var(--laws)", cls:"p-laws"}
+};
 
-// ================= SEED DATA (MMP+ Schedule) =================
+// ================= HELPERS =================
+var _uidC = 0;
+function uid(){ _uidC++; return "t"+Date.now().toString(36)+_uidC; }
 function classTopics(prefix, n){
   var a=[];
   for(var i=1;i<=n;i++) a.push({id:uid(), name:prefix+" Class "+i, done:{}});
@@ -284,38 +350,55 @@ function plainTopics(names){
   for(var i=0;i<names.length;i++) a.push({id:uid(), name:names[i], done:{}});
   return a;
 }
-var _uidC = 0;
-function uid(){ _uidC++; return "t"+Date.now().toString(36)+_uidC; }
+function makeSessions(label, n){
+  var a=[];
+  for(var i=1;i<=n;i++) a.push({id:uid(), name:label+" "+i, done:0});
+  return a;
+}
 
+// ================= SEED DATA (MMP+ Schedule PDF) =================
+// WS/LAWS session counts schedule se: GS4=6/6, GS3=6/6, GS2=6/6, Essay=3/3,
+// Society=1/1, WH&PIC=1/1, AMAC=1/1, Modern History=1/1, Geography=2/2
 function seedState(){
+  function mmpSubj(name, prefix, classes, wsN, lawsN){
+    return {
+      id:uid(), tab:"mains", name:name,
+      acts:["lec","rev","notes"],
+      topics:classTopics(prefix, classes),
+      sessions:{ ws:makeSessions("WS", wsN), laws:makeSessions("LAWS", lawsN) }
+    };
+  }
   return {
     targetDate:"2026-12-31",
     subjects:[
-      {id:uid(), tab:"mains", name:"GS 4 — Ethics", acts:MAINS_ACTS.slice(), topics:classTopics("Ethics",18)},
-      {id:uid(), tab:"mains", name:"GS 3", acts:MAINS_ACTS.slice(), topics:classTopics("GS3",27)},
-      {id:uid(), tab:"mains", name:"GS 2", acts:MAINS_ACTS.slice(), topics:classTopics("GS2",25)},
-      {id:uid(), tab:"mains", name:"Essay", acts:MAINS_ACTS.slice(), topics:plainTopics(["Essay Orientation","Essay 1","Essay 2","Essay 3","Essay 4","Essay 5"])},
-      {id:uid(), tab:"mains", name:"GS 1 — Society", acts:MAINS_ACTS.slice(), topics:classTopics("Society",10)},
-      {id:uid(), tab:"mains", name:"World History & PIC", acts:MAINS_ACTS.slice(), topics:classTopics("WH-PIC",10)},
-      {id:uid(), tab:"mains", name:"AMAC (Art & Culture)", acts:MAINS_ACTS.slice(), topics:classTopics("AMAC",8)},
-      {id:uid(), tab:"mains", name:"Modern History", acts:MAINS_ACTS.slice(), topics:classTopics("MH",6)},
-      {id:uid(), tab:"mains", name:"Geography", acts:MAINS_ACTS.slice(), topics:classTopics("Geo",8)},
-      {id:uid(), tab:"mains", name:"Practice Tests & FLTs", acts:["test"], topics:plainTopics([
-        "GS4 — Practice Test 1","GS4 — Practice Test 2","GS4 — FLT 1",
-        "GS3 — Practice Test 3","GS3 — Practice Test 4","GS3 — FLT 2",
-        "GS3 — Practice Test 5","GS3 — Practice Test 6","GS3 — FLT 3",
-        "Essay — Practice Test 7","Essay — Practice Test 8","Essay — FLT 4",
-        "GS1 — Practice Test 9","GS1 — Practice Test 10","GS1 — FLT 5",
-        "Full Length — GS 1 & GS 2","Full Length — GS 3 & GS 4","Full Length — Essay"
-      ])},
-      {id:uid(), tab:"optional", name:"Optional — Paper 1", acts:["lec","rev","notes","test"], topics:[]},
-      {id:uid(), tab:"optional", name:"Optional — Paper 2", acts:["lec","rev","notes","test"], topics:[]}
+      mmpSubj("GS 4 — Ethics","Ethics",18,6,6),
+      mmpSubj("GS 3","GS3",27,6,6),
+      mmpSubj("GS 2","GS2",25,6,6),
+      {id:uid(), tab:"mains", name:"Essay", acts:["lec","rev","notes"],
+        topics:plainTopics(["Essay Orientation","Essay 1","Essay 2","Essay 3","Essay 4","Essay 5"]),
+        sessions:{ws:makeSessions("WS",3), laws:makeSessions("LAWS",3)}},
+      mmpSubj("GS 1 — Society","Society",10,1,1),
+      mmpSubj("World History & PIC","WH-PIC",10,1,1),
+      mmpSubj("AMAC (Art & Culture)","AMAC",8,1,1),
+      mmpSubj("Modern History","MH",6,1,1),
+      mmpSubj("Geography","Geo",8,2,2),
+      {id:uid(), tab:"mains", name:"Practice Tests & FLTs", acts:["test"], sessions:null,
+        topics:plainTopics([
+          "GS4 — Practice Test 1","GS4 — Practice Test 2","GS4 — FLT 1",
+          "GS3 — Practice Test 3","GS3 — Practice Test 4","GS3 — FLT 2",
+          "GS3 — Practice Test 5","GS3 — Practice Test 6","GS3 — FLT 3",
+          "Essay — Practice Test 7","Essay — Practice Test 8","Essay — FLT 4",
+          "GS1 — Practice Test 9","GS1 — Practice Test 10","GS1 — FLT 5",
+          "Full Length — GS 1 & GS 2","Full Length — GS 3 & GS 4","Full Length — Essay"
+        ])},
+      {id:uid(), tab:"optional", name:"Optional — Paper 1", acts:["lec","rev","notes","test"], sessions:null, topics:[]},
+      {id:uid(), tab:"optional", name:"Optional — Paper 2", acts:["lec","rev","notes","test"], sessions:null, topics:[]}
     ]
   };
 }
 
 // ================= STATE =================
-var LS_KEY = "mmp_mains_tracker_v2";
+var LS_KEY = "mmp_mains_tracker_v3";
 var state = null;
 var activeTab = "mains";
 var canSave = true;
@@ -328,6 +411,13 @@ function loadState(){
   }catch(e){ canSave=false; }
   if(!state || !state.subjects) state = seedState();
   if(!state.targetDate) state.targetDate = "2026-12-31";
+  if(!state.daily) state.daily = [];
+  if(!state.dChecks) state.dChecks = defaultDChecks();
+  if(!state.dSlowed) state.dSlowed = defaultDSlowed();
+  // purani versions se "Applied Faculty Feedback" hatao
+  for(var di=state.dChecks.length-1;di>=0;di--){
+    if(state.dChecks[di].key==="feedback") state.dChecks.splice(di,1);
+  }
   if(!canSave){
     document.getElementById('saveNote').textContent = "Note: is preview mein save nahi hoga. File download karke browser mein kholo — wahan progress save rahega.";
   }
@@ -339,23 +429,37 @@ function saveState(){
 
 // ================= STATS =================
 function subjectCells(s){
-  var done=0, total=0;
+  var done=0,total=0;
   for(var i=0;i<s.topics.length;i++){
     for(var j=0;j<s.acts.length;j++){
       total++;
       if(s.topics[i].done[s.acts[j]]) done++;
     }
   }
+  if(s.sessions){
+    var keys=["ws","laws"];
+    for(var k=0;k<keys.length;k++){
+      var arr = s.sessions[keys[k]];
+      if(!arr) continue;
+      for(var m=0;m<arr.length;m++){ total++; if(arr[m].done) done++; }
+    }
+  }
   return {done:done,total:total,pct: total? Math.round(done/total*100):0};
 }
 function subjectActStat(s, act){
   var done=0,total=0;
-  if(s.acts.indexOf(act)===-1) return null;
   for(var i=0;i<s.topics.length;i++){
     total++;
     if(s.topics[i].done[act]) done++;
   }
   return {done:done,total:total,pct: total? Math.round(done/total*100):0};
+}
+function subjectSessStat(s, key){
+  var arr = s.sessions && s.sessions[key];
+  if(!arr) return null;
+  var done=0;
+  for(var i=0;i<arr.length;i++) if(arr[i].done) done++;
+  return {done:done,total:arr.length,pct: arr.length? Math.round(done/arr.length*100):0};
 }
 function tabStats(tab){
   var done=0,total=0;
@@ -378,6 +482,16 @@ function globalActStat(act){
   }
   return {done:done,total:total,pct: total? Math.round(done/total*100):0};
 }
+function globalSessStat(key){
+  var done=0,total=0;
+  for(var i=0;i<state.subjects.length;i++){
+    var s = state.subjects[i];
+    var arr = s.sessions && s.sessions[key];
+    if(!arr) continue;
+    for(var j=0;j<arr.length;j++){ total++; if(arr[j].done) done++; }
+  }
+  return {done:done,total:total,pct: total? Math.round(done/total*100):0};
+}
 
 // ================= HEADER =================
 function renderHeader(){
@@ -392,40 +506,49 @@ function renderHeader(){
   document.getElementById('baakiLine').innerHTML =
     "<strong>"+(total-done)+" checks baaki</strong> · "+done+"/"+total+" complete";
 
-  // countdown
   var inp = document.getElementById('targetDate');
   if(inp.value !== state.targetDate) inp.value = state.targetDate;
   var t = new Date(state.targetDate+"T23:59:59");
-  var now = new Date();
-  var days = Math.ceil((t - now)/(1000*60*60*24));
-  document.getElementById('cdNum').innerHTML = (days>=0? days : 0) + ' <span>din</span>';
+  var days = Math.ceil((t - new Date())/(1000*60*60*24));
+  document.getElementById('cdNum').innerHTML = (days>=0? days:0) + ' <span>din</span>';
 
-  // activity stats
   var box = document.getElementById('actStats');
   box.innerHTML = "";
-  for(var k=0;k<ACT_ORDER.length;k++){
-    var a = ACT_ORDER[k];
-    var st = globalActStat(a);
+  var items = [
+    {lbl:"Lecture", st:globalActStat("lec"), color:ACTS.lec.color},
+    {lbl:"Revision", st:globalActStat("rev"), color:ACTS.rev.color},
+    {lbl:"Notes", st:globalActStat("notes"), color:ACTS.notes.color},
+    {lbl:"Test", st:globalActStat("test"), color:ACTS.test.color},
+    {lbl:"Write Smart", st:globalSessStat("ws"), color:SESS.ws.color},
+    {lbl:"LAWS", st:globalSessStat("laws"), color:SESS.laws.color}
+  ];
+  for(var k=0;k<items.length;k++){
+    var it = items[k];
     var d = document.createElement('div');
     d.className = "astat";
-    d.style.borderTopColor = ACTS[a].color;
-    d.innerHTML = '<div class="a-lbl">'+ACTS[a].full+'</div>'+
-      '<div class="a-val">'+st.pct+'%</div>'+
-      '<div class="a-sub">'+st.done+'/'+st.total+'</div>';
+    d.style.borderTopColor = it.color;
+    d.innerHTML = '<div class="a-lbl">'+it.lbl+'</div>'+
+      '<div class="a-val">'+it.st.pct+'%</div>'+
+      '<div class="a-sub">'+it.st.done+'/'+it.st.total+'</div>';
     box.appendChild(d);
   }
 
-  // tab pcts
   var btns = document.getElementById('tabBar').children;
   for(var b=0;b<btns.length;b++){
     var tb = btns[b].getAttribute('data-tab');
+    if(tb==="daily"){
+      var n = state.daily.length, sum=0;
+      for(var d2=0;d2<n;d2++) sum += state.daily[d2].score||0;
+      btns[b].querySelector('.tpct').textContent = n? (n+" entries · avg "+Math.round(sum/n)+"%") : "aaj ka scorecard";
+      continue;
+    }
     var s = tabStats(tb);
     btns[b].querySelector('.tpct').textContent = s.pct+"% · "+(s.total-s.done)+" baaki";
   }
 }
 
-// ================= TABS =================
-var TABS = [{id:"mains",label:"Mains (MMP+)"},{id:"optional",label:"Optional"}];
+// ================= TABS / LEGEND =================
+var TABS = [{id:"mains",label:"Mains (MMP+)"},{id:"optional",label:"Optional"},{id:"daily",label:"Daily MRBD"}];
 function renderTabs(){
   var bar = document.getElementById('tabBar');
   bar.innerHTML = "";
@@ -440,16 +563,17 @@ function renderTabs(){
     })(TABS[i]);
   }
 }
-
-// ================= LEGEND =================
 function renderLegend(){
   var lg = document.getElementById('legend');
   lg.innerHTML = "";
-  for(var i=0;i<ACT_ORDER.length;i++){
-    var a = ACT_ORDER[i];
+  var all = [
+    ["Lecture",ACTS.lec.color],["Revision",ACTS.rev.color],["Notes",ACTS.notes.color],
+    ["Test",ACTS.test.color],["Write Smart",SESS.ws.color],["LAWS",SESS.laws.color]
+  ];
+  for(var i=0;i<all.length;i++){
     var sp = document.createElement('span');
     sp.className = "lg";
-    sp.innerHTML = '<i style="background:'+ACTS[a].color+'"></i>'+ACTS[a].full;
+    sp.innerHTML = '<i style="background:'+all[i][1]+'"></i>'+all[i][0];
     lg.appendChild(sp);
   }
 }
@@ -458,6 +582,14 @@ function renderLegend(){
 function renderContent(){
   var root = document.getElementById('content');
   root.innerHTML = "";
+  var lg = document.getElementById('legend');
+  var hint = document.querySelector('.hint');
+  if(activeTab==="daily"){
+    lg.style.display="none"; hint.style.display="none";
+    renderDaily(root);
+    return;
+  }
+  lg.style.display=""; hint.style.display="";
   for(var i=0;i<state.subjects.length;i++){
     if(state.subjects[i].tab!==activeTab) continue;
     root.appendChild(makeSubjectCard(state.subjects[i]));
@@ -465,68 +597,337 @@ function renderContent(){
   root.appendChild(makeAddSubject());
 }
 
+// ================= DAILY MRBD (Reflection Sheet) =================
+function defaultDChecks(){
+  return [
+    {key:"lecture",  sec:"mmp",  label:"Watched Today's Lecture"},
+    {key:"revised",  sec:"mmp",  label:"Revised Post Class"},
+    {key:"wslaws",   sec:"mmp",  label:"WRITE SMART / LAWS"},
+    {key:"focus",    sec:"self", label:"Did You Study With Focus?"},
+    {key:"groupans", sec:"self", label:"Did You Write The Answers Posted In The Group?"},
+    {key:"selfeval", sec:"self", label:"Did You Self-Evaluate Your Answer?"},
+    {key:"revyest",  sec:"self", label:"Did You Revise Yesterday's Topic?"}
+  ];
+}
+function defaultDSlowed(){
+  return [
+    {key:"concept", label:"Lack of Conceptual Understanding"},
+    {key:"backlog", label:"Revision Backlog"},
+    {key:"time",    label:"Time Management"},
+    {key:"pyq",     label:"Difficulty Connecting PYQs"}
+  ];
+}
+function todayStr(){
+  var d = new Date();
+  var m = (d.getMonth()+1); var day = d.getDate();
+  return d.getFullYear()+"-"+(m<10?"0":"")+m+"-"+(day<10?"0":"")+day;
+}
+function findEntry(date){
+  for(var i=0;i<state.daily.length;i++){
+    if(state.daily[i].date===date) return state.daily[i];
+  }
+  return null;
+}
+function renderDaily(root){
+  var selDate = window._dSelDate || todayStr();
+  var existing = findEntry(selDate);
+  var draft;
+  if(window._dDraft && window._dDraft.date===selDate){
+    draft = window._dDraft.data;
+  } else {
+    draft = existing ? JSON.parse(JSON.stringify(existing)) : {
+      date:selDate, subject:"", checks:{}, targets:"", optionalTarget:"",
+      slowed:{}, anythingElse:"", improve:"", score:0
+    };
+  }
+  draft.date = selDate;
+  window._dDraft = {date:selDate, data:draft};
+
+  var card = document.createElement('div');
+  card.className = "daily-card";
+
+  var head = document.createElement('div');
+  head.className = "d-head";
+  head.innerHTML = '<div class="d-title">MAINS Readiness Scorecard</div>';
+  var scoreEl = document.createElement('div');
+  scoreEl.className = "d-score";
+  head.appendChild(scoreEl);
+  card.appendChild(head);
+
+  function calcScore(){
+    var c=0, n=state.dChecks.length;
+    for(var i=0;i<n;i++) if(draft.checks[state.dChecks[i].key]) c++;
+    draft.score = n? Math.round(c/n*100):0;
+    scoreEl.textContent = draft.score+"%";
+  }
+  calcScore();
+
+  // date + subject
+  var row = document.createElement('div');
+  row.className = "d-row";
+  var dIn = document.createElement('input');
+  dIn.type="date"; dIn.value = selDate;
+  dIn.onchange = function(){
+    if(this.value){ window._dSelDate = this.value; render(); }
+  };
+  var sIn = document.createElement('input');
+  sIn.type="text"; sIn.placeholder="Subject (e.g. GS 4 — Ethics)";
+  sIn.value = draft.subject||"";
+  sIn.oninput = function(){ draft.subject = this.value; };
+  row.appendChild(dIn); row.appendChild(sIn);
+  card.appendChild(row);
+
+  function checkRow(item, obj, list){
+    var r = document.createElement('div');
+    r.className = "d-check"+(obj[item.key]?" on":"");
+    r.setAttribute('tabindex','0');
+    r.setAttribute('role','checkbox');
+    r.innerHTML = '<span class="dbox"></span><span style="flex:1">'+esc(item.label)+'</span>';
+    function toggle(){
+      if(obj[item.key]) delete obj[item.key]; else obj[item.key]=1;
+      r.className = "d-check"+(obj[item.key]?" on":"");
+      calcScore();
+    }
+    r.onclick = toggle;
+    r.onkeydown = function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();} };
+    var del = document.createElement('button');
+    del.className = "t-del"; del.innerHTML = "&#10005;"; del.title = "Yeh item hata do";
+    del.onclick = function(e){
+      e.stopPropagation();
+      armConfirm(del, function(){
+        for(var i=0;i<list.length;i++){
+          if(list[i].key===item.key){ list.splice(i,1); break; }
+        }
+        saveState(); render();
+      });
+    };
+    r.appendChild(del);
+    return r;
+  }
+
+  function addItemRow(placeholder, onAdd){
+    var ar = document.createElement('div');
+    ar.className = "add-row";
+    ar.style.padding = "0";
+    var inp = document.createElement('input');
+    inp.type="text"; inp.placeholder = placeholder;
+    var btn = document.createElement('button');
+    btn.textContent = "+ Add";
+    function go(){
+      var v = inp.value.replace(/^\s+|\s+$/g,"");
+      if(!v) return;
+      onAdd(v);
+      saveState(); render();
+    }
+    btn.onclick = go;
+    inp.onkeydown = function(e){ if(e.key==="Enter") go(); };
+    ar.appendChild(inp); ar.appendChild(btn);
+    return ar;
+  }
+
+  var s1 = document.createElement('div');
+  s1.className="d-sec"; s1.textContent="Following MMP+";
+  card.appendChild(s1);
+  for(var i=0;i<state.dChecks.length;i++){
+    if(state.dChecks[i].sec==="mmp") card.appendChild(checkRow(state.dChecks[i], draft.checks, state.dChecks));
+  }
+  card.appendChild(addItemRow("MMP+ mein naya item…", function(v){
+    state.dChecks.push({key:uid(), sec:"mmp", label:v});
+  }));
+
+  var s2 = document.createElement('div');
+  s2.className="d-sec"; s2.textContent="Self Study";
+  card.appendChild(s2);
+  var tg = document.createElement('input');
+  tg.className="d-txt"; tg.placeholder="Targets for today…";
+  tg.value = draft.targets||"";
+  tg.oninput = function(){ draft.targets = this.value; };
+  card.appendChild(tg);
+  for(var j=0;j<state.dChecks.length;j++){
+    if(state.dChecks[j].sec==="self") card.appendChild(checkRow(state.dChecks[j], draft.checks, state.dChecks));
+  }
+  card.appendChild(addItemRow("Self study mein naya item…", function(v){
+    state.dChecks.push({key:uid(), sec:"self", label:v});
+  }));
+
+  var s3 = document.createElement('div');
+  s3.className="d-sec"; s3.textContent="Optional Target";
+  card.appendChild(s3);
+  var ot = document.createElement('input');
+  ot.className="d-txt"; ot.placeholder="Aaj ka optional target…";
+  ot.value = draft.optionalTarget||"";
+  ot.oninput = function(){ draft.optionalTarget = this.value; };
+  card.appendChild(ot);
+
+  var s4 = document.createElement('div');
+  s4.className="d-sec"; s4.textContent="What Slowed Me Down Today?";
+  card.appendChild(s4);
+  for(var k=0;k<state.dSlowed.length;k++){
+    card.appendChild(checkRow(state.dSlowed[k], draft.slowed, state.dSlowed));
+  }
+  card.appendChild(addItemRow("Naya reason add karo…", function(v){
+    state.dSlowed.push({key:uid(), label:v});
+  }));
+  var ae = document.createElement('input');
+  ae.className="d-txt"; ae.placeholder="Anything else?";
+  ae.value = draft.anythingElse||"";
+  ae.oninput = function(){ draft.anythingElse = this.value; };
+  card.appendChild(ae);
+
+  var s5 = document.createElement('div');
+  s5.className="d-sec"; s5.textContent="One Thing I Must Improve Tomorrow";
+  card.appendChild(s5);
+  var im = document.createElement('input');
+  im.className="d-txt"; im.placeholder="Kal kya improve karna hai…";
+  im.value = draft.improve||"";
+  im.oninput = function(){ draft.improve = this.value; };
+  card.appendChild(im);
+
+  var save = document.createElement('button');
+  save.className = "d-save";
+  save.textContent = existing ? "Update entry" : "Save aaj ka scorecard";
+  save.onclick = function(){
+    calcScore();
+    var ix = -1;
+    for(var i=0;i<state.daily.length;i++){
+      if(state.daily[i].date===draft.date){ ix=i; break; }
+    }
+    if(ix>=0) state.daily[ix] = draft;
+    else state.daily.unshift(draft);
+    state.daily.sort(function(a,b){ return a.date<b.date?1:-1; });
+    window._dDraft = null;
+    saveState(); render();
+  };
+  card.appendChild(save);
+  root.appendChild(card);
+
+  // history
+  if(state.daily.length){
+    var hs = document.createElement('div');
+    hs.className = "d-sec"; hs.textContent = "History ("+state.daily.length+" days)";
+    root.appendChild(hs);
+    for(var h=0;h<state.daily.length;h++){
+      root.appendChild(makeHistItem(state.daily[h]));
+    }
+  }
+}
+function makeHistItem(e){
+  var it = document.createElement('div');
+  it.className = "hist-item";
+  var cls = e.score>=75?"good":(e.score>=50?"mid":"low");
+  var head = document.createElement('div');
+  head.className = "hist-head";
+  head.innerHTML =
+    '<span class="hist-date">'+esc(e.date)+'</span>'+
+    '<span class="hist-subj">'+esc(e.subject||"—")+'</span>'+
+    '<span class="hist-score '+cls+'">'+(e.score||0)+'%</span>';
+  var del = document.createElement('button');
+  del.className = "hist-del"; del.innerHTML = "&#10005;"; del.title = "Entry delete karo";
+  del.onclick = function(ev){
+    ev.stopPropagation();
+    armConfirm(del, function(){
+      for(var i=0;i<state.daily.length;i++){
+        if(state.daily[i].date===e.date){ state.daily.splice(i,1); break; }
+      }
+      saveState(); render();
+    });
+  };
+  head.appendChild(del);
+  head.onclick = function(){ it.classList.toggle('open'); };
+  it.appendChild(head);
+
+  var body = document.createElement('div');
+  body.className = "hist-body";
+  var doneList=[], notList=[];
+  for(var i=0;i<state.dChecks.length;i++){
+    if(e.checks && e.checks[state.dChecks[i].key]) doneList.push(state.dChecks[i].label);
+    else notList.push(state.dChecks[i].label);
+  }
+  var slowedList=[];
+  for(var j=0;j<state.dSlowed.length;j++){
+    if(e.slowed && e.slowed[state.dSlowed[j].key]) slowedList.push(state.dSlowed[j].label);
+  }
+  var html = "";
+  if(e.targets) html += '<div class="hb-line"><b>Targets:</b> '+esc(e.targets)+'</div>';
+  if(doneList.length) html += '<div class="hb-line"><b>Done:</b> '+esc(doneList.join(", "))+'</div>';
+  if(notList.length) html += '<div class="hb-line"><b>Missed:</b> '+esc(notList.join(", "))+'</div>';
+  if(e.optionalTarget) html += '<div class="hb-line"><b>Optional:</b> '+esc(e.optionalTarget)+'</div>';
+  if(slowedList.length) html += '<div class="hb-line"><b>Slowed down:</b> '+esc(slowedList.join(", "))+'</div>';
+  if(e.anythingElse) html += '<div class="hb-line"><b>Anything else:</b> '+esc(e.anythingElse)+'</div>';
+  if(e.improve) html += '<div class="hb-line"><b>Improve tomorrow:</b> '+esc(e.improve)+'</div>';
+  body.innerHTML = html || '<div class="hb-line">Koi detail nahi.</div>';
+  it.appendChild(body);
+  return it;
+}
+
 function makeSubjectCard(s){
   var stats = subjectCells(s);
   var card = document.createElement('div');
   card.className = "subject"+(openMap[s.id]?" open":"");
 
-  // head
+  var wsSt = subjectSessStat(s,"ws");
+  var lawsSt = subjectSessStat(s,"laws");
+  var subBits = [s.topics.length+" classes/topics"];
+  if(wsSt) subBits.push("WS "+wsSt.done+"/"+wsSt.total);
+  if(lawsSt) subBits.push("LAWS "+lawsSt.done+"/"+lawsSt.total);
+
   var head = document.createElement('div');
   head.className = "subj-head";
   head.setAttribute('tabindex','0');
   head.innerHTML =
     '<span class="chev">&#9654;</span>'+
     '<div class="subj-name">'+esc(s.name)+
-    '<small>'+s.topics.length+' topics · '+stats.done+'/'+stats.total+' checks · '+actNames(s)+'</small></div>'+
+    '<small>'+subBits.join(" · ")+'</small></div>'+
     '<span class="subj-pct'+(stats.pct===100&&stats.total>0?' full':'')+'">'+stats.pct+'%</span>';
   var delS = document.createElement('button');
   delS.className = "subj-del"; delS.innerHTML = "&#10005;"; delS.title = "Subject delete karo";
   delS.onclick = function(e){
     e.stopPropagation();
-    if(confirm('"'+s.name+'" pura subject delete ho jayega. Pakka?')){
+    armConfirm(delS, function(){
       for(var i=0;i<state.subjects.length;i++){
         if(state.subjects[i].id===s.id){ state.subjects.splice(i,1); break; }
       }
       saveState(); render();
-    }
+    });
   };
   head.appendChild(delS);
   head.onclick = function(){ openMap[s.id]=!openMap[s.id]; card.classList.toggle('open'); };
   head.onkeydown = function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();head.onclick();} };
   card.appendChild(head);
 
-  // subject bar
   var trk = document.createElement('div');
   trk.className = "subj-track";
   trk.innerHTML = '<div class="sfill'+(stats.pct===100&&stats.total>0?' full':'')+'" style="width:'+stats.pct+'%"></div>';
   card.appendChild(trk);
 
-  // per-activity bars
+  // per-section bars
   var ab = document.createElement('div');
   ab.className = "act-bars";
   for(var k=0;k<s.acts.length;k++){
     var a = s.acts[k];
     var ast = subjectActStat(s,a);
-    var d = document.createElement('div');
-    d.className = "ab";
-    d.innerHTML =
-      '<div class="ab-top"><span>'+ACTS[a].label+'</span><span>'+ast.done+'/'+ast.total+' · '+ast.pct+'%</span></div>'+
-      '<div class="ab-track"><div class="ab-fill" style="width:'+ast.pct+'%;background:'+ACTS[a].color+'"></div></div>';
-    ab.appendChild(d);
+    ab.appendChild(makeBar(ACTS[a].label, ast, ACTS[a].color));
   }
+  if(wsSt) ab.appendChild(makeBar("WS", wsSt, SESS.ws.color));
+  if(lawsSt) ab.appendChild(makeBar("LAWS", lawsSt, SESS.laws.color));
   card.appendChild(ab);
 
-  // topics
+  // body
   var box = document.createElement('div');
   box.className = "topics";
+
+  // classes section
+  var st1 = document.createElement('div');
+  st1.className = "sec-title";
+  st1.innerHTML = '<span>Classes / Topics</span>';
+  box.appendChild(st1);
   for(var j=0;j<s.topics.length;j++){
     box.appendChild(makeTopicRow(s, s.topics[j]));
   }
-  // add topic
   var ar = document.createElement('div');
   ar.className = "add-row";
   var inp = document.createElement('input');
-  inp.type="text"; inp.placeholder="Naya topic add karo…";
+  inp.type="text"; inp.placeholder="Naya topic/class add karo…";
   var btn = document.createElement('button');
   btn.textContent = "+ Add";
   function addIt(){
@@ -540,15 +941,24 @@ function makeSubjectCard(s){
   inp.onkeydown = function(e){ if(e.key==="Enter") addIt(); };
   ar.appendChild(inp); ar.appendChild(btn);
   box.appendChild(ar);
-  card.appendChild(box);
 
+  // WS / LAWS session blocks
+  if(s.sessions){
+    if(s.sessions.ws) box.appendChild(makeSessBlock(s,"ws"));
+    if(s.sessions.laws) box.appendChild(makeSessBlock(s,"laws"));
+  }
+
+  card.appendChild(box);
   return card;
 }
 
-function actNames(s){
-  var out=[];
-  for(var i=0;i<s.acts.length;i++) out.push(ACTS[s.acts[i]].label);
-  return out.join(" · ");
+function makeBar(label, st, color){
+  var d = document.createElement('div');
+  d.className = "ab";
+  d.innerHTML =
+    '<div class="ab-top"><span>'+label+'</span><span>'+st.done+'/'+st.total+' · '+st.pct+'%</span></div>'+
+    '<div class="ab-track"><div class="ab-fill" style="width:'+st.pct+'%;background:'+color+'"></div></div>';
+  return d;
 }
 
 function makeTopicRow(s, tp){
@@ -585,7 +995,7 @@ function makeTopicRow(s, tp){
   row.appendChild(chips);
 
   var del = document.createElement('button');
-  del.className = "t-del"; del.innerHTML = "&#10005;"; del.title = "Topic delete karo";
+  del.className = "t-del"; del.innerHTML = "&#10005;"; del.title = "Delete";
   del.onclick = function(){
     for(var i=0;i<s.topics.length;i++){
       if(s.topics[i].id===tp.id){ s.topics.splice(i,1); break; }
@@ -594,6 +1004,60 @@ function makeTopicRow(s, tp){
   };
   row.appendChild(del);
   return row;
+}
+
+function makeSessBlock(s, key){
+  var meta = SESS[key];
+  var arr = s.sessions[key];
+  var done=0;
+  for(var i=0;i<arr.length;i++) if(arr[i].done) done++;
+
+  var block = document.createElement('div');
+  block.className = "sess-block";
+
+  var st = document.createElement('div');
+  st.className = "sec-title";
+  st.innerHTML = '<span>'+meta.full+' sessions (pura subject)</span><span class="sc" style="color:'+meta.color+'">'+done+'/'+arr.length+'</span>';
+  block.appendChild(st);
+
+  var wrap = document.createElement('div');
+  wrap.className = "sess-wrap";
+  for(var j=0;j<arr.length;j++){
+    (function(sess){
+      var p = document.createElement('span');
+      p.className = "pill "+meta.cls+(sess.done?" on":"");
+      p.setAttribute('tabindex','0');
+      p.setAttribute('role','button');
+      var nm = document.createElement('span');
+      nm.textContent = sess.name;
+      p.appendChild(nm);
+      var x = document.createElement('span');
+      x.className = "px"; x.innerHTML = "&#10005;"; x.title = "Session delete karo";
+      x.onclick = function(e){
+        e.stopPropagation();
+        for(var i=0;i<arr.length;i++){
+          if(arr[i].id===sess.id){ arr.splice(i,1); break; }
+        }
+        saveState(); render();
+      };
+      p.appendChild(x);
+      function toggle(){ sess.done = sess.done?0:1; saveState(); render(); }
+      p.onclick = toggle;
+      p.onkeydown = function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();} };
+      wrap.appendChild(p);
+    })(arr[j]);
+  }
+  var add = document.createElement('button');
+  add.className = "pill-add";
+  add.textContent = "+ "+meta.label;
+  add.onclick = function(){
+    arr.push({id:uid(), name:meta.label+" "+(arr.length+1), done:0});
+    openMap[s.id]=true;
+    saveState(); render();
+  };
+  wrap.appendChild(add);
+  block.appendChild(wrap);
+  return block;
 }
 
 // ================= ADD SUBJECT =================
@@ -607,27 +1071,51 @@ function makeAddSubject(){
   var form = document.createElement('div');
   form.className = "subj-form";
   var inp = document.createElement('input');
-  inp.type="text"; inp.placeholder="Subject ka naam (e.g. Optional — Crash Course)";
+  inp.type="text"; inp.placeholder="Subject ka naam";
   form.appendChild(inp);
 
+  var l1 = document.createElement('div');
+  l1.className = "sf-lbl"; l1.textContent = "Har class/topic pe kya track karna hai:";
+  form.appendChild(l1);
   var picks = document.createElement('div');
   picks.className = "act-picks";
-  var sel = {lec:1,rev:1,notes:1,test:1,ws:1,laws:1};
-  for(var i=0;i<ACT_ORDER.length;i++){
+  var sel = {lec:1,rev:1,notes:1};
+  for(var i=0;i<TOPIC_ACT_ORDER.length;i++){
     (function(a){
       var p = document.createElement('span');
-      p.className = "apick on";
-      p.style.background = ACTS[a].color;
-      p.style.color = "#0B0C0F";
+      var on = !!sel[a];
+      p.className = "apick"+(on?" on":"");
+      if(on){ p.style.background=ACTS[a].color; p.style.color="#0B0C0F"; }
       p.textContent = ACTS[a].full;
       p.onclick = function(){
         if(sel[a]){ delete sel[a]; p.className="apick"; p.style.background=""; p.style.color=""; }
         else{ sel[a]=1; p.className="apick on"; p.style.background=ACTS[a].color; p.style.color="#0B0C0F"; }
       };
       picks.appendChild(p);
-    })(ACT_ORDER[i]);
+    })(TOPIC_ACT_ORDER[i]);
   }
   form.appendChild(picks);
+
+  var l2 = document.createElement('div');
+  l2.className = "sf-lbl"; l2.textContent = "Subject-level sessions:";
+  form.appendChild(l2);
+  var picks2 = document.createElement('div');
+  picks2.className = "act-picks";
+  var sel2 = {};
+  var sessKeys = ["ws","laws"];
+  for(var i2=0;i2<sessKeys.length;i2++){
+    (function(k){
+      var p = document.createElement('span');
+      p.className = "apick";
+      p.textContent = SESS[k].full;
+      p.onclick = function(){
+        if(sel2[k]){ delete sel2[k]; p.className="apick"; p.style.background=""; p.style.color=""; }
+        else{ sel2[k]=1; p.className="apick on"; p.style.background=SESS[k].color; p.style.color="#0B0C0F"; }
+      };
+      picks2.appendChild(p);
+    })(sessKeys[i2]);
+  }
+  form.appendChild(picks2);
 
   var btns = document.createElement('div');
   btns.className = "sf-btns";
@@ -637,9 +1125,15 @@ function makeAddSubject(){
     var v = inp.value.replace(/^\s+|\s+$/g,"");
     if(!v){ inp.focus(); return; }
     var acts=[];
-    for(var i=0;i<ACT_ORDER.length;i++) if(sel[ACT_ORDER[i]]) acts.push(ACT_ORDER[i]);
+    for(var i=0;i<TOPIC_ACT_ORDER.length;i++) if(sel[TOPIC_ACT_ORDER[i]]) acts.push(TOPIC_ACT_ORDER[i]);
     if(acts.length===0) acts=["lec"];
-    var ns = {id:uid(), tab:activeTab, name:v, acts:acts, topics:[]};
+    var sessions = null;
+    if(sel2.ws || sel2.laws){
+      sessions = {};
+      if(sel2.ws) sessions.ws = [];
+      if(sel2.laws) sessions.laws = [];
+    }
+    var ns = {id:uid(), tab:activeTab, name:v, acts:acts, topics:[], sessions:sessions};
     state.subjects.push(ns);
     openMap[ns.id]=true;
     saveState(); render();
@@ -679,13 +1173,33 @@ function importData(inp){
   r.readAsText(f);
   inp.value = "";
 }
-function resetAll(){
-  if(confirm("Pura progress + custom subjects reset ho jayenge. Pakka?")){
+function resetAll(btn){
+  armConfirm(btn, function(){
     state = seedState(); saveState(); render();
-  }
+  }, "Pakka? dobara dabao");
 }
 function esc(s){
   return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+// confirm() popup kai jagah block hota hai — isliye double-tap confirm
+function armConfirm(btn, fn, label){
+  if(btn._armed){
+    clearTimeout(btn._t);
+    btn._armed = false;
+    btn.innerHTML = btn._orig;
+    btn.style.color = "";
+    fn();
+    return;
+  }
+  btn._armed = true;
+  btn._orig = btn.innerHTML;
+  btn.innerHTML = label || "Pakka?";
+  btn.style.color = "var(--danger)";
+  btn._t = setTimeout(function(){
+    btn._armed = false;
+    btn.innerHTML = btn._orig;
+    btn.style.color = "";
+  }, 3500);
 }
 
 // ================= INIT =================
@@ -700,7 +1214,6 @@ document.getElementById('targetDate').onchange = function(){
   if(this.value){ state.targetDate = this.value; saveState(); renderHeader(); }
 };
 render();
-// countdown refresh at midnight-ish
 setInterval(function(){ renderHeader(); }, 60*60*1000);
 </script>
 </body>
