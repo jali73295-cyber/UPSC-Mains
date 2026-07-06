@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MMP Mains Tracker — Ready By December</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0C0F;
+  --card:#14161B;
+  --card2:#1B1E25;
+  --line:#272B33;
+  --text:#F2F1EC;
+  --soft:#9BA1AC;
+  --yellow:#FFD400;
+  --lec:#FFD400;
+  --rev:#3DDC84;
+  --notes:#4D9FFF;
+  --test:#B48CFF;
+  --ws:#FF9F45;
+  --laws:#FF5C7A;
+  --danger:#FF5C7A;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.5;
+}
+.mono{font-family:'IBM Plex Mono',monospace;}
+button{font-family:inherit;}
+
+/* ---------- HEADER ---------- */
+header{
+  background:linear-gradient(180deg,#101218,#0B0C0F);
+  border-bottom:2px solid var(--yellow);
+  padding:26px 18px 22px;
+}
+.wrap{max-width:860px;margin:0 auto;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:6px;
+}
+h1{
+  font-family:'Archivo',sans-serif;font-weight:900;
+  font-size:clamp(24px,5vw,36px);letter-spacing:-.02em;line-height:1.08;
+}
+h1 .yl{color:var(--yellow);}
+.top-row{
+  display:flex;align-items:stretch;gap:14px;flex-wrap:wrap;margin-top:18px;
+}
+.pct-block{flex:1;min-width:220px;}
+.big-pct{
+  font-family:'IBM Plex Mono',monospace;font-weight:600;
+  font-size:clamp(44px,10vw,68px);line-height:1;letter-spacing:-.03em;color:var(--yellow);
+}
+.baaki-line{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--soft);margin-top:6px;}
+.baaki-line strong{color:var(--danger);font-weight:600;}
+.track{
+  margin-top:12px;height:14px;background:#1D2027;border:1px solid var(--line);overflow:hidden;
+}
+.track .fill{
+  height:100%;width:0%;
+  background:repeating-linear-gradient(-55deg,var(--yellow),var(--yellow) 8px,#E8BE00 8px,#E8BE00 16px);
+  transition:width .5s cubic-bezier(.2,.8,.2,1);
+}
+.countdown{
+  min-width:180px;background:var(--card);border:1px solid var(--line);
+  padding:14px 16px;display:flex;flex-direction:column;justify-content:center;
+}
+.cd-lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);}
+.cd-num{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:38px;line-height:1.1;color:var(--text);}
+.cd-num span{font-size:15px;color:var(--soft);font-weight:500;}
+.cd-date{margin-top:6px;}
+.cd-date input{
+  background:var(--card2);border:1px solid var(--line);color:var(--soft);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;padding:4px 6px;
+  color-scheme:dark;
+}
+.act-stats{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px;
+}
+.astat{
+  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--soft);
+  padding:8px 9px;
+}
+.astat .a-lbl{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--soft);}
+.astat .a-val{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:17px;margin-top:1px;}
+.astat .a-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);}
+
+/* ---------- TABS ---------- */
+nav{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line);}
+.tabs{display:flex;max-width:860px;margin:0 auto;}
+.tab{
+  flex:1;font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;
+  padding:13px 10px;text-align:center;cursor:pointer;border:none;background:none;
+  color:var(--soft);border-bottom:3px solid transparent;
+}
+.tab .tpct{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:11px;display:block;margin-top:1px;}
+.tab.active{color:var(--yellow);border-bottom-color:var(--yellow);background:rgba(255,212,0,.05);}
+.tab:focus-visible{outline:2px solid var(--yellow);outline-offset:-2px;}
+
+/* ---------- MAIN ---------- */
+main{max-width:860px;margin:0 auto;padding:18px 14px 90px;}
+.legend{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--soft);
+}
+.legend .lg{display:inline-flex;align-items:center;gap:5px;}
+.lg i{width:9px;height:9px;display:inline-block;border-radius:2px;}
+.hint{font-size:12.5px;color:var(--soft);margin-bottom:16px;}
+
+/* ---------- SUBJECT CARD ---------- */
+.subject{background:var(--card);border:1px solid var(--line);margin-bottom:14px;}
+.subj-head{display:flex;align-items:center;gap:10px;padding:14px 14px;cursor:pointer;user-select:none;}
+.subj-head:focus-visible{outline:2px solid var(--yellow);outline-offset:-2px;}
+.chev{font-size:11px;color:var(--soft);transition:transform .2s;flex:none;}
+.subject.open .chev{transform:rotate(90deg);}
+.subj-name{font-family:'Archivo',sans-serif;font-weight:700;font-size:16px;flex:1;min-width:0;}
+.subj-name small{display:block;font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:10.5px;color:var(--soft);margin-top:1px;}
+.subj-pct{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;flex:none;}
+.subj-pct.full{color:var(--rev);}
+.subj-del{
+  flex:none;border:none;background:none;color:var(--soft);font-size:14px;cursor:pointer;padding:4px 6px;
+}
+.subj-del:hover{color:var(--danger);}
+.subj-track{height:4px;background:#1D2027;margin:0 14px;}
+.subj-track .sfill{height:100%;background:var(--yellow);transition:width .4s;}
+.subj-track .sfill.full{background:var(--rev);}
+
+.act-bars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+  padding:12px 14px 4px;
+}
+.ab{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--soft);}
+.ab .ab-top{display:flex;justify-content:space-between;margin-bottom:3px;}
+.ab .ab-track{height:4px;background:#1D2027;}
+.ab .ab-fill{height:100%;transition:width .3s;}
+
+.topics{display:none;padding:10px 8px 14px;}
+.subject.open .topics{display:block;}
+
+.topic{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  padding:9px 8px;border-bottom:1px solid #1B1E24;
+}
+.topic:last-of-type{border-bottom:none;}
+.tname{flex:1 1 160px;font-size:14px;min-width:0;}
+.tname.alldone{color:var(--soft);}
+.chips{display:flex;gap:5px;flex-wrap:wrap;}
+.chip{
+  font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.04em;
+  padding:4px 8px;border-radius:3px;cursor:pointer;user-select:none;
+  background:var(--card2);border:1px solid var(--line);color:var(--soft);
+}
+.chip:focus-visible{outline:2px solid var(--yellow);outline-offset:1px;}
+.chip.on{color:#0B0C0F;font-weight:600;border-color:transparent;}
+.chip.on.c-lec{background:var(--lec);}
+.chip.on.c-rev{background:var(--rev);}
+.chip.on.c-notes{background:var(--notes);}
+.chip.on.c-test{background:var(--test);}
+.chip.on.c-ws{background:var(--ws);}
+.chip.on.c-laws{background:var(--laws);}
+.t-del{
+  flex:none;border:none;background:none;color:var(--soft);font-size:13px;cursor:pointer;padding:2px 6px;
+}
+.t-del:hover{color:var(--danger);}
+
+.add-row{display:flex;gap:8px;margin-top:12px;padding:0 8px;}
+.add-row input{
+  flex:1;border:1px solid var(--line);padding:9px 10px;background:var(--card2);
+  color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-size:14px;
+}
+.add-row input:focus{outline:none;border-color:var(--yellow);}
+.add-row button{
+  border:1px solid var(--yellow);background:var(--yellow);color:#0B0C0F;
+  font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;padding:9px 14px;cursor:pointer;
+}
+.add-row button:active{transform:translateY(1px);}
+
+/* ---------- ADD SUBJECT ---------- */
+.add-subject{
+  border:1.5px dashed var(--line);background:none;color:var(--soft);
+  width:100%;padding:14px;font-family:'Archivo',sans-serif;font-weight:700;
+  font-size:14px;cursor:pointer;margin-top:4px;
+}
+.add-subject:hover{border-color:var(--yellow);color:var(--yellow);}
+.subj-form{
+  border:1.5px dashed var(--yellow);padding:14px;margin-top:4px;display:none;
+}
+.subj-form.show{display:block;}
+.subj-form input[type=text]{
+  width:100%;border:1px solid var(--line);padding:10px;background:var(--card2);
+  color:var(--text);font-size:14px;font-family:'IBM Plex Sans',sans-serif;
+}
+.subj-form input[type=text]:focus{outline:none;border-color:var(--yellow);}
+.act-picks{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+.apick{
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;padding:6px 10px;
+  border:1px solid var(--line);border-radius:3px;cursor:pointer;color:var(--soft);
+  background:var(--card2);user-select:none;
+}
+.apick.on{color:#0B0C0F;font-weight:600;border-color:transparent;}
+.sf-btns{display:flex;gap:8px;margin-top:12px;}
+.sf-btns .go{border:none;background:var(--yellow);color:#0B0C0F;font-family:'Archivo',sans-serif;font-weight:700;padding:9px 16px;cursor:pointer;font-size:13px;}
+.sf-btns .cancel{border:1px solid var(--line);background:none;color:var(--soft);padding:9px 14px;cursor:pointer;font-size:13px;}
+
+/* ---------- TOOLS ---------- */
+.tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
+.tools button{
+  border:1px solid var(--line);background:var(--card);color:var(--soft);
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;padding:9px 13px;cursor:pointer;
+}
+.tools button:hover{border-color:var(--yellow);color:var(--yellow);}
+.save-note{text-align:center;font-size:11px;color:var(--soft);margin-top:14px;font-family:'IBM Plex Mono',monospace;}
+
+@media(max-width:560px){
+  .act-stats{grid-template-columns:repeat(3,1fr);}
+  .act-bars{grid-template-columns:repeat(2,1fr);}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Sarrthi IAS &middot; MMP+ &middot; Mains Tracker</div>
+    <h1>MAINS READY <span class="yl">BY DECEMBER</span></h1>
+    <div class="top-row">
+      <div class="pct-block">
+        <div class="big-pct" id="bigPct">0%</div>
+        <div class="baaki-line" id="baakiLine"></div>
+        <div class="track"><div class="fill" id="bigFill"></div></div>
+      </div>
+      <div class="countdown">
+        <div class="cd-lbl">Target tak bache</div>
+        <div class="cd-num" id="cdNum">— <span>din</span></div>
+        <div class="cd-date"><input type="date" id="targetDate" title="Target date badlo"></div>
+      </div>
+    </div>
+    <div class="act-stats" id="actStats"></div>
+  </div>
+</header>
+
+<nav><div class="tabs" id="tabBar"></div></nav>
+
+<main>
+  <div class="legend" id="legend"></div>
+  <div class="hint">Har topic ke chips pe tap karo — LEC, REV, NOTES, TEST, WS, LAWS. Subject ya topic kisi bhi level pe add/delete kar sakte ho (&#10005; se).</div>
+  <div id="content"></div>
+  <div class="tools">
+    <button onclick="exportData()">Export backup (JSON)</button>
+    <button onclick="document.getElementById('impFile').click()">Import backup</button>
+    <button onclick="resetAll()">Reset sab kuch</button>
+    <input type="file" id="impFile" accept=".json" style="display:none" onchange="importData(this)">
+  </div>
+  <div class="save-note" id="saveNote">Progress auto-save hota hai isi browser mein (localStorage).</div>
+</main>
+
+<script>
+// ================= ACTIVITY DEFINITIONS =================
+var ACTS = {
+  lec:  {label:"LEC",   full:"Lecture",     color:"var(--lec)",   cls:"c-lec"},
+  rev:  {label:"REV",   full:"Revision",    color:"var(--rev)",   cls:"c-rev"},
+  notes:{label:"NOTES", full:"Notes",       color:"var(--notes)", cls:"c-notes"},
+  test: {label:"TEST",  full:"Test",        color:"var(--test)",  cls:"c-test"},
+  ws:   {label:"WS",    full:"Write Smart", color:"var(--ws)",    cls:"c-ws"},
+  laws: {label:"LAWS",  full:"LAWS",        color:"var(--laws)",  cls:"c-laws"}
+};
+var ACT_ORDER = ["lec","rev","notes","test","ws","laws"];
+var MAINS_ACTS = ["lec","rev","notes","test","ws","laws"];
+
+// ================= SEED DATA (MMP+ Schedule) =================
+function classTopics(prefix, n){
+  var a=[];
+  for(var i=1;i<=n;i++) a.push({id:uid(), name:prefix+" Class "+i, done:{}});
+  return a;
+}
+function plainTopics(names){
+  var a=[];
+  for(var i=0;i<names.length;i++) a.push({id:uid(), name:names[i], done:{}});
+  return a;
+}
+var _uidC = 0;
+function uid(){ _uidC++; return "t"+Date.now().toString(36)+_uidC; }
+
+function seedState(){
+  return {
+    targetDate:"2026-12-31",
+    subjects:[
+      {id:uid(), tab:"mains", name:"GS 4 — Ethics", acts:MAINS_ACTS.slice(), topics:classTopics("Ethics",18)},
+      {id:uid(), tab:"mains", name:"GS 3", acts:MAINS_ACTS.slice(), topics:classTopics("GS3",27)},
+      {id:uid(), tab:"mains", name:"GS 2", acts:MAINS_ACTS.slice(), topics:classTopics("GS2",25)},
+      {id:uid(), tab:"mains", name:"Essay", acts:MAINS_ACTS.slice(), topics:plainTopics(["Essay Orientation","Essay 1","Essay 2","Essay 3","Essay 4","Essay 5"])},
+      {id:uid(), tab:"mains", name:"GS 1 — Society", acts:MAINS_ACTS.slice(), topics:classTopics("Society",10)},
+      {id:uid(), tab:"mains", name:"World History & PIC", acts:MAINS_ACTS.slice(), topics:classTopics("WH-PIC",10)},
+      {id:uid(), tab:"mains", name:"AMAC (Art & Culture)", acts:MAINS_ACTS.slice(), topics:classTopics("AMAC",8)},
+      {id:uid(), tab:"mains", name:"Modern History", acts:MAINS_ACTS.slice(), topics:classTopics("MH",6)},
+      {id:uid(), tab:"mains", name:"Geography", acts:MAINS_ACTS.slice(), topics:classTopics("Geo",8)},
+      {id:uid(), tab:"mains", name:"Practice Tests & FLTs", acts:["test"], topics:plainTopics([
+        "GS4 — Practice Test 1","GS4 — Practice Test 2","GS4 — FLT 1",
+        "GS3 — Practice Test 3","GS3 — Practice Test 4","GS3 — FLT 2",
+        "GS3 — Practice Test 5","GS3 — Practice Test 6","GS3 — FLT 3",
+        "Essay — Practice Test 7","Essay — Practice Test 8","Essay — FLT 4",
+        "GS1 — Practice Test 9","GS1 — Practice Test 10","GS1 — FLT 5",
+        "Full Length — GS 1 & GS 2","Full Length — GS 3 & GS 4","Full Length — Essay"
+      ])},
+      {id:uid(), tab:"optional", name:"Optional — Paper 1", acts:["lec","rev","notes","test"], topics:[]},
+      {id:uid(), tab:"optional", name:"Optional — Paper 2", acts:["lec","rev","notes","test"], topics:[]}
+    ]
+  };
+}
+
+// ================= STATE =================
+var LS_KEY = "mmp_mains_tracker_v2";
+var state = null;
+var activeTab = "mains";
+var canSave = true;
+var openMap = {};
+
+function loadState(){
+  try{
+    var raw = localStorage.getItem(LS_KEY);
+    if(raw) state = JSON.parse(raw);
+  }catch(e){ canSave=false; }
+  if(!state || !state.subjects) state = seedState();
+  if(!state.targetDate) state.targetDate = "2026-12-31";
+  if(!canSave){
+    document.getElementById('saveNote').textContent = "Note: is preview mein save nahi hoga. File download karke browser mein kholo — wahan progress save rahega.";
+  }
+}
+function saveState(){
+  if(!canSave) return;
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(state)); }catch(e){}
+}
+
+// ================= STATS =================
+function subjectCells(s){
+  var done=0, total=0;
+  for(var i=0;i<s.topics.length;i++){
+    for(var j=0;j<s.acts.length;j++){
+      total++;
+      if(s.topics[i].done[s.acts[j]]) done++;
+    }
+  }
+  return {done:done,total:total,pct: total? Math.round(done/total*100):0};
+}
+function subjectActStat(s, act){
+  var done=0,total=0;
+  if(s.acts.indexOf(act)===-1) return null;
+  for(var i=0;i<s.topics.length;i++){
+    total++;
+    if(s.topics[i].done[act]) done++;
+  }
+  return {done:done,total:total,pct: total? Math.round(done/total*100):0};
+}
+function tabStats(tab){
+  var done=0,total=0;
+  for(var i=0;i<state.subjects.length;i++){
+    if(state.subjects[i].tab!==tab) continue;
+    var c = subjectCells(state.subjects[i]);
+    done+=c.done; total+=c.total;
+  }
+  return {done:done,total:total,pct: total? Math.round(done/total*100):0};
+}
+function globalActStat(act){
+  var done=0,total=0;
+  for(var i=0;i<state.subjects.length;i++){
+    var s = state.subjects[i];
+    if(s.acts.indexOf(act)===-1) continue;
+    for(var j=0;j<s.topics.length;j++){
+      total++;
+      if(s.topics[j].done[act]) done++;
+    }
+  }
+  return {done:done,total:total,pct: total? Math.round(done/total*100):0};
+}
+
+// ================= HEADER =================
+function renderHeader(){
+  var done=0,total=0;
+  for(var i=0;i<state.subjects.length;i++){
+    var c = subjectCells(state.subjects[i]);
+    done+=c.done; total+=c.total;
+  }
+  var pct = total? Math.round(done/total*100):0;
+  document.getElementById('bigPct').textContent = pct+"%";
+  document.getElementById('bigFill').style.width = pct+"%";
+  document.getElementById('baakiLine').innerHTML =
+    "<strong>"+(total-done)+" checks baaki</strong> · "+done+"/"+total+" complete";
+
+  // countdown
+  var inp = document.getElementById('targetDate');
+  if(inp.value !== state.targetDate) inp.value = state.targetDate;
+  var t = new Date(state.targetDate+"T23:59:59");
+  var now = new Date();
+  var days = Math.ceil((t - now)/(1000*60*60*24));
+  document.getElementById('cdNum').innerHTML = (days>=0? days : 0) + ' <span>din</span>';
+
+  // activity stats
+  var box = document.getElementById('actStats');
+  box.innerHTML = "";
+  for(var k=0;k<ACT_ORDER.length;k++){
+    var a = ACT_ORDER[k];
+    var st = globalActStat(a);
+    var d = document.createElement('div');
+    d.className = "astat";
+    d.style.borderTopColor = ACTS[a].color;
+    d.innerHTML = '<div class="a-lbl">'+ACTS[a].full+'</div>'+
+      '<div class="a-val">'+st.pct+'%</div>'+
+      '<div class="a-sub">'+st.done+'/'+st.total+'</div>';
+    box.appendChild(d);
+  }
+
+  // tab pcts
+  var btns = document.getElementById('tabBar').children;
+  for(var b=0;b<btns.length;b++){
+    var tb = btns[b].getAttribute('data-tab');
+    var s = tabStats(tb);
+    btns[b].querySelector('.tpct').textContent = s.pct+"% · "+(s.total-s.done)+" baaki";
+  }
+}
+
+// ================= TABS =================
+var TABS = [{id:"mains",label:"Mains (MMP+)"},{id:"optional",label:"Optional"}];
+function renderTabs(){
+  var bar = document.getElementById('tabBar');
+  bar.innerHTML = "";
+  for(var i=0;i<TABS.length;i++){
+    (function(t){
+      var b = document.createElement('button');
+      b.className = "tab"+(t.id===activeTab?" active":"");
+      b.setAttribute('data-tab',t.id);
+      b.innerHTML = t.label+'<span class="tpct"></span>';
+      b.onclick = function(){ activeTab=t.id; render(); };
+      bar.appendChild(b);
+    })(TABS[i]);
+  }
+}
+
+// ================= LEGEND =================
+function renderLegend(){
+  var lg = document.getElementById('legend');
+  lg.innerHTML = "";
+  for(var i=0;i<ACT_ORDER.length;i++){
+    var a = ACT_ORDER[i];
+    var sp = document.createElement('span');
+    sp.className = "lg";
+    sp.innerHTML = '<i style="background:'+ACTS[a].color+'"></i>'+ACTS[a].full;
+    lg.appendChild(sp);
+  }
+}
+
+// ================= CONTENT =================
+function renderContent(){
+  var root = document.getElementById('content');
+  root.innerHTML = "";
+  for(var i=0;i<state.subjects.length;i++){
+    if(state.subjects[i].tab!==activeTab) continue;
+    root.appendChild(makeSubjectCard(state.subjects[i]));
+  }
+  root.appendChild(makeAddSubject());
+}
+
+function makeSubjectCard(s){
+  var stats = subjectCells(s);
+  var card = document.createElement('div');
+  card.className = "subject"+(openMap[s.id]?" open":"");
+
+  // head
+  var head = document.createElement('div');
+  head.className = "subj-head";
+  head.setAttribute('tabindex','0');
+  head.innerHTML =
+    '<span class="chev">&#9654;</span>'+
+    '<div class="subj-name">'+esc(s.name)+
+    '<small>'+s.topics.length+' topics · '+stats.done+'/'+stats.total+' checks · '+actNames(s)+'</small></div>'+
+    '<span class="subj-pct'+(stats.pct===100&&stats.total>0?' full':'')+'">'+stats.pct+'%</span>';
+  var delS = document.createElement('button');
+  delS.className = "subj-del"; delS.innerHTML = "&#10005;"; delS.title = "Subject delete karo";
+  delS.onclick = function(e){
+    e.stopPropagation();
+    if(confirm('"'+s.name+'" pura subject delete ho jayega. Pakka?')){
+      for(var i=0;i<state.subjects.length;i++){
+        if(state.subjects[i].id===s.id){ state.subjects.splice(i,1); break; }
+      }
+      saveState(); render();
+    }
+  };
+  head.appendChild(delS);
+  head.onclick = function(){ openMap[s.id]=!openMap[s.id]; card.classList.toggle('open'); };
+  head.onkeydown = function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();head.onclick();} };
+  card.appendChild(head);
+
+  // subject bar
+  var trk = document.createElement('div');
+  trk.className = "subj-track";
+  trk.innerHTML = '<div class="sfill'+(stats.pct===100&&stats.total>0?' full':'')+'" style="width:'+stats.pct+'%"></div>';
+  card.appendChild(trk);
+
+  // per-activity bars
+  var ab = document.createElement('div');
+  ab.className = "act-bars";
+  for(var k=0;k<s.acts.length;k++){
+    var a = s.acts[k];
+    var ast = subjectActStat(s,a);
+    var d = document.createElement('div');
+    d.className = "ab";
+    d.innerHTML =
+      '<div class="ab-top"><span>'+ACTS[a].label+'</span><span>'+ast.done+'/'+ast.total+' · '+ast.pct+'%</span></div>'+
+      '<div class="ab-track"><div class="ab-fill" style="width:'+ast.pct+'%;background:'+ACTS[a].color+'"></div></div>';
+    ab.appendChild(d);
+  }
+  card.appendChild(ab);
+
+  // topics
+  var box = document.createElement('div');
+  box.className = "topics";
+  for(var j=0;j<s.topics.length;j++){
+    box.appendChild(makeTopicRow(s, s.topics[j]));
+  }
+  // add topic
+  var ar = document.createElement('div');
+  ar.className = "add-row";
+  var inp = document.createElement('input');
+  inp.type="text"; inp.placeholder="Naya topic add karo…";
+  var btn = document.createElement('button');
+  btn.textContent = "+ Add";
+  function addIt(){
+    var v = inp.value.replace(/^\s+|\s+$/g,"");
+    if(!v) return;
+    s.topics.push({id:uid(), name:v, done:{}});
+    openMap[s.id]=true;
+    saveState(); render();
+  }
+  btn.onclick = addIt;
+  inp.onkeydown = function(e){ if(e.key==="Enter") addIt(); };
+  ar.appendChild(inp); ar.appendChild(btn);
+  box.appendChild(ar);
+  card.appendChild(box);
+
+  return card;
+}
+
+function actNames(s){
+  var out=[];
+  for(var i=0;i<s.acts.length;i++) out.push(ACTS[s.acts[i]].label);
+  return out.join(" · ");
+}
+
+function makeTopicRow(s, tp){
+  var row = document.createElement('div');
+  row.className = "topic";
+
+  var allDone = s.acts.length>0;
+  for(var c=0;c<s.acts.length;c++) if(!tp.done[s.acts[c]]) allDone=false;
+
+  var nm = document.createElement('span');
+  nm.className = "tname"+(allDone?" alldone":"");
+  nm.textContent = tp.name;
+  row.appendChild(nm);
+
+  var chips = document.createElement('div');
+  chips.className = "chips";
+  for(var k=0;k<s.acts.length;k++){
+    (function(a){
+      var ch = document.createElement('span');
+      ch.className = "chip "+ACTS[a].cls+(tp.done[a]?" on":"");
+      ch.textContent = ACTS[a].label;
+      ch.setAttribute('tabindex','0');
+      ch.setAttribute('role','button');
+      ch.title = ACTS[a].full;
+      function toggle(){
+        if(tp.done[a]) delete tp.done[a]; else tp.done[a]=1;
+        saveState(); render();
+      }
+      ch.onclick = toggle;
+      ch.onkeydown = function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle();} };
+      chips.appendChild(ch);
+    })(s.acts[k]);
+  }
+  row.appendChild(chips);
+
+  var del = document.createElement('button');
+  del.className = "t-del"; del.innerHTML = "&#10005;"; del.title = "Topic delete karo";
+  del.onclick = function(){
+    for(var i=0;i<s.topics.length;i++){
+      if(s.topics[i].id===tp.id){ s.topics.splice(i,1); break; }
+    }
+    saveState(); render();
+  };
+  row.appendChild(del);
+  return row;
+}
+
+// ================= ADD SUBJECT =================
+function makeAddSubject(){
+  var wrap = document.createElement('div');
+
+  var btn = document.createElement('button');
+  btn.className = "add-subject";
+  btn.textContent = "+ Naya subject add karo";
+
+  var form = document.createElement('div');
+  form.className = "subj-form";
+  var inp = document.createElement('input');
+  inp.type="text"; inp.placeholder="Subject ka naam (e.g. Optional — Crash Course)";
+  form.appendChild(inp);
+
+  var picks = document.createElement('div');
+  picks.className = "act-picks";
+  var sel = {lec:1,rev:1,notes:1,test:1,ws:1,laws:1};
+  for(var i=0;i<ACT_ORDER.length;i++){
+    (function(a){
+      var p = document.createElement('span');
+      p.className = "apick on";
+      p.style.background = ACTS[a].color;
+      p.style.color = "#0B0C0F";
+      p.textContent = ACTS[a].full;
+      p.onclick = function(){
+        if(sel[a]){ delete sel[a]; p.className="apick"; p.style.background=""; p.style.color=""; }
+        else{ sel[a]=1; p.className="apick on"; p.style.background=ACTS[a].color; p.style.color="#0B0C0F"; }
+      };
+      picks.appendChild(p);
+    })(ACT_ORDER[i]);
+  }
+  form.appendChild(picks);
+
+  var btns = document.createElement('div');
+  btns.className = "sf-btns";
+  var go = document.createElement('button');
+  go.className="go"; go.textContent="Add subject";
+  go.onclick = function(){
+    var v = inp.value.replace(/^\s+|\s+$/g,"");
+    if(!v){ inp.focus(); return; }
+    var acts=[];
+    for(var i=0;i<ACT_ORDER.length;i++) if(sel[ACT_ORDER[i]]) acts.push(ACT_ORDER[i]);
+    if(acts.length===0) acts=["lec"];
+    var ns = {id:uid(), tab:activeTab, name:v, acts:acts, topics:[]};
+    state.subjects.push(ns);
+    openMap[ns.id]=true;
+    saveState(); render();
+  };
+  var cancel = document.createElement('button');
+  cancel.className="cancel"; cancel.textContent="Cancel";
+  cancel.onclick = function(){ form.className="subj-form"; btn.style.display="block"; };
+  btns.appendChild(go); btns.appendChild(cancel);
+  form.appendChild(btns);
+
+  btn.onclick = function(){ form.className="subj-form show"; btn.style.display="none"; inp.focus(); };
+  wrap.appendChild(btn);
+  wrap.appendChild(form);
+  return wrap;
+}
+
+// ================= TOOLS =================
+function exportData(){
+  var blob = new Blob([JSON.stringify(state,null,2)],{type:"application/json"});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  var d = new Date();
+  a.download = "mmp_tracker_backup_"+d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()+".json";
+  a.click();
+}
+function importData(inp){
+  var f = inp.files[0];
+  if(!f) return;
+  var r = new FileReader();
+  r.onload = function(){
+    try{
+      var obj = JSON.parse(r.result);
+      if(obj && obj.subjects){ state=obj; saveState(); render(); }
+      else alert("Invalid backup file.");
+    }catch(e){ alert("File read nahi hui — valid JSON backup chahiye."); }
+  };
+  r.readAsText(f);
+  inp.value = "";
+}
+function resetAll(){
+  if(confirm("Pura progress + custom subjects reset ho jayenge. Pakka?")){
+    state = seedState(); saveState(); render();
+  }
+}
+function esc(s){
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// ================= INIT =================
+function render(){
+  renderTabs();
+  renderLegend();
+  renderContent();
+  renderHeader();
+}
+loadState();
+document.getElementById('targetDate').onchange = function(){
+  if(this.value){ state.targetDate = this.value; saveState(); renderHeader(); }
+};
+render();
+// countdown refresh at midnight-ish
+setInterval(function(){ renderHeader(); }, 60*60*1000);
+</script>
+</body>
+</html>
